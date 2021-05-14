@@ -1,9 +1,9 @@
-package test.edu.unibo.martyadventure.model.fight;
+package tests.test.edu.unibo.martyadventure.model.fight;
 
 import edu.unibo.martyadventure.model.character.*;
 import edu.unibo.martyadventure.model.fight.Fight;
 import edu.unibo.martyadventure.model.weapon.Move;
-import test.edu.unibo.martyadventure.model.character.*;
+import tests.test.edu.unibo.martyadventure.model.character.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

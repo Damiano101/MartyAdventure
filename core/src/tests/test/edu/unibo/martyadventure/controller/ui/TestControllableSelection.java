@@ -1,4 +1,4 @@
-package test.edu.unibo.martyadventure.controller.ui;
+package tests.test.edu.unibo.martyadventure.controller.ui;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package test.edu.unibo.martyadventure.model.weapon;
+package tests.test.edu.unibo.martyadventure.model.weapon;
 
 import edu.unibo.martyadventure.model.weapon.Move;
 

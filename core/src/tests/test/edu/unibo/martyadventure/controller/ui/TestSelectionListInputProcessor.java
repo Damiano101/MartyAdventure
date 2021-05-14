@@ -1,4 +1,4 @@
-package test.edu.unibo.martyadventure.controller.ui;
+package tests.test.edu.unibo.martyadventure.controller.ui;
 
 import static org.junit.jupiter.api.Assertions.*;
 

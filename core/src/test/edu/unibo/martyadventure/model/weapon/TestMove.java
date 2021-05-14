@@ -10,6 +10,7 @@ public class TestMove {
 
     Move HOOK1 = Move.HOOK;
 
+    @Test
     void testLoadingMove() {
         assertEquals(HOOK1.getName(), Move.HOOK.getName());
         assertEquals(HOOK1.getDamage(), Move.HOOK.getDamage());
@@ -21,6 +22,7 @@ public class TestMove {
         // System.err.println("testLoadingMove ok");
     }
 
+    @Test
     void testSetLastUse() {
         HOOK1.setLastUse(1);
         assertEquals(HOOK1.getLastUse(), Move.HOOK.getLastUse());
@@ -28,30 +30,12 @@ public class TestMove {
         // System.err.println("testSetLastUse ok");
     }
 
-    void testGetRandomMove() {
-        System.out.println(Move.getRandomMove());
-
-    }
-
+    @Test
     void testIsUsable() {
         assertFalse(HOOK1.isUsable(2));
         assertTrue(HOOK1.isUsable(4));
 
         // System.err.println("testIsUsable ok");
-    }
-
-    void testTestFailure() {
-        System.out.println(HOOK1.testFailure());
-    }
-
-    @Test
-    void testMove() {
-        testLoadingMove();
-        testSetLastUse();
-        testGetRandomMove();
-        testIsUsable();
-        testTestFailure();
-        // System.err.println("testMove ok");
     }
 
 }

@@ -6,16 +6,19 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ThreadLocalRandom;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Disposable;
 
 import edu.unibo.martyadventure.model.character.EnemyCharacter;
 import edu.unibo.martyadventure.view.Toolbox;
 import edu.unibo.martyadventure.view.MapManager.Maps;
 import edu.unibo.martyadventure.view.weapon.WeaponView;
 import edu.unibo.martyadventure.view.weapon.WeaponViewFactory;
+
 /**
  * Factory to get characters
  */
-public class CharacterViewFactory {
+
+public class CharacterViewFactory implements Disposable {
 
     private static final String MARTY_PATH_1 = "Characters/Marty/MartyMove (1).png";
     private static final String MARTY_PATH_2 = "Characters/Marty/MartyMove (2).png";
@@ -62,14 +65,11 @@ public class CharacterViewFactory {
     }
 
     /**
-     * Set up a player based on the current map
-     * 
-     * @param player
-     * @param initialPosition
-     * @param map
-     * @return the current player
-     * @throws InterruptedException
-     * @throws ExecutionException
+     * Get the player character view for the given map.
+     *
+     * @param player           the player character to use.
+     * @param initialiPosition the map position map the character should start at.
+     * @param map              the map the character is for.
      */
     public PlayerCharacterView createPlayer(Player player, Vector2 initialPosition, Maps map)
             throws InterruptedException, ExecutionException {
@@ -77,13 +77,10 @@ public class CharacterViewFactory {
     }
 
     /**
-     * Create enemy based on the current map
-     * 
-     * @param initialPosition
-     * @param map
-     * @return the enemy
-     * @throws InterruptedException
-     * @throws ExecutionException
+     * Create an enemy for the given map.
+     *
+     * @param initialiPosition the map position map the character should start at.
+     * @param map              the map the character is for.
      */
     public EnemyCharacterView createEnemy(Vector2 initialPosition, Maps map)
             throws InterruptedException, ExecutionException {
@@ -98,7 +95,11 @@ public class CharacterViewFactory {
     }
 
     /**
-     * Create new boss based on the current player and map
+     * Create the boss for the given player character for the given map.
+     *
+     * @param player           the character the player is using.
+     * @param initialiPosition the map position map the character should start at.
+     * @param map              the map the character is for.
      */
     public BossCharacterView createBoss(final Player player, final Vector2 initialPosition, final Maps map)
             throws InterruptedException, ExecutionException {
@@ -114,6 +115,7 @@ public class CharacterViewFactory {
                 dropWeaponView);
     }
 
+    @Override
     public void dispose() {
         Toolbox.unloadAsset(ENEMY_PATH_1);
         Toolbox.unloadAsset(ENEMY_PATH_2);

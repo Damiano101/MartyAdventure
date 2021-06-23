@@ -66,10 +66,13 @@ public class CharacterViewFactory implements Disposable {
 
     /**
      * Get the player character view for the given map.
-     *
-     * @param player           the player character to use.
-     * @param initialiPosition the map position map the character should start at.
-     * @param map              the map the character is for.
+     * 
+     * @param player          the player which is playing
+     * @param initialPosition player initial position
+     * @param map             the current map
+     * @return the player view of the current map
+     * @throws InterruptedException player not loaded
+     * @throws ExecutionException   texture not loaded
      */
     public PlayerCharacterView createPlayer(Player player, Vector2 initialPosition, Maps map)
             throws InterruptedException, ExecutionException {
@@ -78,9 +81,12 @@ public class CharacterViewFactory implements Disposable {
 
     /**
      * Create an enemy for the given map.
-     *
-     * @param initialiPosition the map position map the character should start at.
-     * @param map              the map the character is for.
+     * 
+     * @param initialPosition the starting position of the enemy
+     * @param map             the current map
+     * @return the new enemy based on the map level
+     * @throws InterruptedException error loading the enemy
+     * @throws ExecutionException   error loading the enemy
      */
     public EnemyCharacterView createEnemy(Vector2 initialPosition, Maps map)
             throws InterruptedException, ExecutionException {
@@ -96,10 +102,13 @@ public class CharacterViewFactory implements Disposable {
 
     /**
      * Create the boss for the given player character for the given map.
-     *
-     * @param player           the character the player is using.
-     * @param initialiPosition the map position map the character should start at.
-     * @param map              the map the character is for.
+     * 
+     * @param player          the player the map is using
+     * @param initialPosition the boss initial position
+     * @param map             the map currently used
+     * @return the new boss for the current map
+     * @throws InterruptedException boss creation error
+     * @throws ExecutionException   boss creation error
      */
     public BossCharacterView createBoss(final Player player, final Vector2 initialPosition, final Maps map)
             throws InterruptedException, ExecutionException {
